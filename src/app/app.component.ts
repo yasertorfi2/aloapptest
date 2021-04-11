@@ -1,17 +1,28 @@
+import { ControlService } from './control.service';
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [ControlService],
 })
 export class AppComponent {
-  title = 'testapp';
-  selectedYear = 2020;
-  years = [2008, 2009, 2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
+  selectedYear: 2020;
+  allYears;
+  controlsForSelectedYear;
 
-  onChangeYear(d){
-    console.log(d)
+  constructor(private service: ControlService) {
+    this.allYears = service.getAllYears();
+  }
 
+  onChangeYear() {
+    console.log(this.selectedYear)
+    this.controlsForSelectedYear = this.service.getControlsForCustomYear(
+      this.selectedYear
+    );
+
+    console.log(this.controlsForSelectedYear)
   }
 }

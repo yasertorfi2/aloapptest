@@ -1,8 +1,8 @@
 <div class="row">
   <div class="form-group col-md-4">
     <label for="sel1">Select a year:</label>
-    <select class="form-control" id="sel1" (change)="onChangeYear($event.target.value)" [(ngModel)]="selectedYear">
-      <option *ngFor="let year of years" [value]="year">{{year}}</option>
+    <select class="form-control" id="sel1" (change)="onChangeYear()" [(ngModel)]="selectedYear">
+      <option *ngFor="let year of allYears" [value]="year">{{year}}</option>
     </select>
   </div>
 </div>
