@@ -9,13 +9,29 @@
 
         <div class="row">
             <div class="col-md-4">
-                <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Save</button>
+                <button type="submit" class="btn btn-primary" [disabled]="!form.valid" data-toggle="modal" data-target="#myModal">Save</button>
             </div>
         </div>
 
     </form>
 
-    <div *ngIf="payLoad" class="alert alert-primary">
-        <strong>Saved the following ....</strong><br>{{payLoad}}
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Saved the following data....</h4>
+                </div>
+                <div class="modal-body">
+                    {{payLoad}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
