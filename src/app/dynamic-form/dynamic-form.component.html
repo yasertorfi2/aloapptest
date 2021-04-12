@@ -1,0 +1,21 @@
+<div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+        <div class="row">
+            <div *ngFor="let control of controls">
+                <app-dynamic-form-control [control]="control" [form]="form"></app-dynamic-form-control>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Save</button>
+            </div>
+        </div>
+
+    </form>
+
+    <div *ngIf="payLoad" class="alert alert-primary">
+        <strong>Saved the following ....</strong><br>{{payLoad}}
+    </div>
+</div>

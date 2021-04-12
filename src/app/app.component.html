@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <h1>Yaser Torfi's test application...</h1>
+        <div class="form-group col-md-4">
+            <label for="sel1">Please select a year:</label>
+            <select class="form-control" id="sel1" (change)="onChangeYear()" [(ngModel)]="selectedYear">
+      <option *ngFor="let year of allYears" [value]="year">{{year}}</option>
+    </select>
+        </div>
+    </div>
+
+    <div *ngIf="controlsForSelectedYear; else waiting">
+        <app-dynamic-form [controls]="controlsForSelectedYear"></app-dynamic-form>
+    </div>
+    <ng-template #waiting>
+        <mat-spinner></mat-spinner>
+    </ng-template>
+</div>
