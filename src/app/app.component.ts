@@ -9,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   selectedYear = 2015;
-  allYears;
-  controlsForSelectedYear;
+  allYears : number[];
+  controlsForSelectedYear: any[];
 
   constructor(private service: ControlService) {
     this.allYears = service.getAllYears();
